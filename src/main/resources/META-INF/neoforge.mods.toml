@@ -11,7 +11,9 @@ disolayURL = "https://github.com/ThinkingStudios/ForgematicaPrinter"
 credits= "aleksilassila"
 authors = "TexTrue, ThinkingStudio"
 description = '''
-A fork of Litematica that adds the missing printer functionality
+LitematicaPrinter unofficial (Neo)Forge port.
+
+A fork of Forgematica that adds the missing printer functionality.
 '''
 #logoFile = ""
 
