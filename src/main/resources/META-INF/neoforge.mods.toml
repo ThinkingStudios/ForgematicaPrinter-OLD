@@ -1,0 +1,36 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "AGPLv3"
+
+[[mods]]
+modId = "forgematica_printer"
+version = "${version}"
+displayName = "ForgematicaPrinter"
+disolayURL = "https://github.com/ThinkingStudios/ForgematicaPrinter"
+credits= "aleksilassila"
+authors = "TexTrue, ThinkingStudio"
+description = '''
+A fork of Litematica that adds the missing printer functionality
+'''
+#logoFile = ""
+
+[[mixins]]
+config = "forgematica-printer.mixins.json"
+
+[[mixins]]
+config = "forgematica-printer.impl.mixins.json"
+
+[[dependencies.forgematica_printer]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.forgematica_printer]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"

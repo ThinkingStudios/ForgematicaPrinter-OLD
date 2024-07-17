@@ -1,0 +1,71 @@
+plugins {
+    alias(libs.plugins.architectury.loom)
+    id 'maven-publish'
+}
+
+base.archivesName = libs.versions.archives.name
+version = "${libs.versions.version.get()}-mc${libs.versions.minecraft.version.get()}"
+group = libs.versions.maven.group
+
+repositories {
+    maven { url "https://maven.neoforged.net/releases/" }
+    maven { url 'https://api.modrinth.com/maven' }
+    maven {
+        url "https://maven2.bai.lol"
+        content {
+            includeGroup "lol.bai"
+        }
+    }
+}
+
+dependencies {
+    minecraft libs.minecraft
+    mappings loom.layered {
+        it.mappings(variantOf(libs.yarn.mappings) { classifier("v2") })
+        it.mappings(libs.yarn.mappings.patch)
+    }
+    neoForge libs.neoforge
+
+    modImplementation libs.badpackets
+    modImplementation libs.mafglib
+    modImplementation libs.forgematica
+}
+
+processResources {
+    inputs.property 'version', project.version
+
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand version: project.version
+    }
+}
+
+java {
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+// Configure Maven publishing.
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
+}
