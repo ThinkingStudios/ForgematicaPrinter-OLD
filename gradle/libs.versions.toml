@@ -14,8 +14,8 @@ maven-group="org.thinkingstudio.forgematica.printer"
 archives-name="ForgematicaPrinter"
 
 # Publish properties
-id-modrinth=""
-id-curseforge=""
+id-modrinth="idk"
+id-curseforge="idk"
 
 # Mod dependencies
 badpackets="neo-0.8.1"
