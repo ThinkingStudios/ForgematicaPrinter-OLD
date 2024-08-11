@@ -6,7 +6,7 @@ minecraft-range="1.21"
 minecraft_version="1.21"
 yarn_mappings="1.21+build.2"
 mappings_patch="1.21+build.4"
-neoforge="21.0.78-beta"
+neoforge="21.0.167"
 
 # Mod properties
 version="0.1.0"
@@ -19,8 +19,8 @@ id-curseforge="idk"
 
 # Mod dependencies
 badpackets="neo-0.8.1"
-mafglib="0.1.16-mc1.21"
-forgematica="0.1.7-mc1.21"
+mafglib="0.1.21-mc1.21"
+forgematica="0.1.10-mc1.21"
 
 # Gradle plugin
 architectury-loom = "1.6-SNAPSHOT"
